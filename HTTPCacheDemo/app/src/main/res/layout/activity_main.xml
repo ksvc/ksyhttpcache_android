@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ksy.Cache.demo.MainActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/my_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.PagerTabStrip
+            android:id="@+id/pager_tab"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        </android.support.v4.view.PagerTabStrip>
+
+    </android.support.v4.view.ViewPager>
+</RelativeLayout>

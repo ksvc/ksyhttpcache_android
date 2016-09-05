@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CacheDemo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="clenacache">清空缓存</string>
+    <string name="check_num">设置缓存文件数限制</string>
+    <string name="check_size">设置缓存为大小限制</string>
+    <string name="check_hw">硬解</string>
+    <string name="check_sw">软解</string>
+    <string name="save">保存</string>
+</resources>

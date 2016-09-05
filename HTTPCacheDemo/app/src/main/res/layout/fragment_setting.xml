@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    tools:context="com.ksy.Cache.demo.SettingFragment">
+
+    <RadioGroup
+        android:id="@+id/group_cache"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/radio_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/check_size"/>
+        <RadioButton
+            android:id="@+id/radio_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_num"/>
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/group_decode"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group_cache"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/radio_hw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/check_hw"/>
+        <RadioButton
+            android:id="@+id/radio_sw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_sw"/>
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_clean"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group_decode"
+        android:text="@string/clenacache"/>
+
+
+
+
+</RelativeLayout>
