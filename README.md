@@ -165,9 +165,10 @@ File getCacheRoot()
 获得缓存区路径
 
 ## 5.其他文档
-
+请见[wiki](https://github.com/ksvc/ksyhttpcache_android/wiki)
 
 ## 6.反馈与建议
-主页：金山云
-邮箱：zengfanping@kingsoft.com
-Issues：
+- 主页：[金山云](http://www.ksyun.com/)
+- 邮箱：<zengfanping@kingsoft.com>
+- QQ讨论群：574179720
+- Issues:https://github.com/ksvc/ksyhttpcache_android/issues
