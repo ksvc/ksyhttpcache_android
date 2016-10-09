@@ -4,7 +4,6 @@ package com.ksy.Cache.demo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,8 +15,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.kingsoft.media.httpcache.KSYProxyService;
-
-import java.io.File;
 
 
 public class SettingFragment extends Fragment implements View.OnClickListener,RadioGroup.OnCheckedChangeListener{
@@ -117,7 +114,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Ra
         switch(view.getId()){
             case R.id.btn_clean:
                 proxy = App.getKSYProxy(getActivity());
-                proxy.setCacheRoot(new File(Environment.getExternalStorageDirectory(),"cachetest"));
                 proxy.startServer();
                 proxy.cleanCaches();
                 proxy.shutDownServer();

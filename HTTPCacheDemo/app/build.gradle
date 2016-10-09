@@ -30,6 +30,10 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/libksyplayer.jar')
     compile files('libs/libksystat.jar')
+    compile fileTree(include: '*/so', dir: 'libs/armeabi-v7a')
+    compile fileTree(include: '*/so', dir: 'libs/arm64-v8a')
+    compile fileTree(include: '*/so', dir: 'libs/x86')
+    compile fileTree(include: '*/so', dir: 'libs/x86_64')
 //    compile files('libs/libksyhttpcache.jar')
     compile files('libs/libksyhttpcache-proguard.jar')
     compile 'com.android.support:appcompat-v7:24.1.1'

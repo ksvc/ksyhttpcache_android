@@ -178,9 +178,7 @@
         android:id="@+id/player_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_alignParentBottom="true"
-        android:background="#cccccc">
+        android:layout_alignParentBottom="true">
 
         <ImageView
             android:id="@+id/player_start"
@@ -202,10 +200,11 @@
 
             <SeekBar
                 android:id="@+id/player_seekbar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/player_time"
-                android:focusable="true"/>
+                android:focusable="true" />
 
         </RelativeLayout>
 

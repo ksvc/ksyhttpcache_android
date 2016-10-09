@@ -194,9 +194,9 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
             long duration = ksyMediaPlayer.getDuration();
             long progress = duration * percent/100;
 
-            if (cachelength == 0){
-                mPlayerSeekbar.setSecondaryProgress((int)length);
-            }
+//            if (cachelength == 0){
+//                mPlayerSeekbar.setSecondaryProgress((int)length);
+//            }
         }
     };
 
@@ -295,6 +295,7 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
             }
         }
     };
+    private int cachePercents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -427,12 +428,17 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
 
         if (useHwCodec) {
             //硬解264&265
-            ksyMediaPlayer.setCodecFlag(KSYMediaPlayer.KSY_USE_MEDIACODEC_ALL);
+//            ksyMediaPlayer.setCodecFlag(KSYMediaPlayer.KSY_USE_MEDIACODEC_ALL);
+            ksyMediaPlayer.setDecodeMode(KSYMediaPlayer.KSYDecodeMode.KSY_DECODE_MODE_AUTO);
 
         }
         try {
             startcache();
+            cachePercents = proxy.getCachingPercent(mDataSource);
+            mPlayerSeekbar.setSecondaryProgress(cachePercents);
+
             String url = proxy.getProxyUrl(mDataSource);
+//            String url = proxy.getProxyUrl(mDataSource, true);
             ksyMediaPlayer.setDataSource(url);
             ksyMediaPlayer.prepareAsync();
         } catch (IOException e) {
@@ -532,9 +538,12 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
         length = ksyMediaPlayer.getDuration();
 
         // Update all view elements
-        mPlayerSeekbar.setMax((int)length);
+//        mPlayerSeekbar.setMax((int)length);
 
-        mPlayerSeekbar.setProgress((int)time);
+        int curProgress = length == 0 ? 0 : (int)(time *100 / length);
+        if (curProgress > 100)
+            curProgress = 100;
+        mPlayerSeekbar.setProgress(curProgress);
 
         if(time >= 0)
         {
@@ -656,7 +665,7 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-            ksyMediaPlayer.seekTo(mVideoProgress);
+            ksyMediaPlayer.seekTo(mVideoProgress*ksyMediaPlayer.getDuration()/100);
             setVideoProgress(mVideoProgress);
         }
     };
@@ -769,12 +778,11 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
 
     protected void startcache(){
         proxy = App.getKSYProxy(this);
-        proxy.setCacheRoot(new File(Environment.getExternalStorageDirectory(),"cachetest"));
         proxy.registerCacheStatusListener(this, mDataSource);
         proxy.registerErrorListener(this);
         choosecache= settings.getString("choose_cache","undefind");
         if(choosecache.equals(Settings.USENUM)){
-            proxy.setMaxFilesCount(1);
+            proxy.setMaxFilesCount(500);
             Log.d(TAG,"文件数量");
         }else{
             proxy.setMaxCacheSize(500*1024*1024);
@@ -792,7 +800,8 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
                         percentsAvailable, sourceLength, url));
         cachelength = (int)length*percentsAvailable/100;
         Log.e("cachedtest","cachelength:  "+cachelength);
-        mPlayerSeekbar.setSecondaryProgress(cachelength);
+        this.cachePercents = percentsAvailable;
+        mPlayerSeekbar.setSecondaryProgress(percentsAvailable);
     }
 
     @Override

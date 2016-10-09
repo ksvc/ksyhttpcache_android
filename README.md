@@ -1,8 +1,8 @@
 # 金山云Android HTTPCache SDK
-金山云android平台http缓存SDK，可方便地与播放器集成，实现http点播视频边播放边下载（缓存）功能。ksyun http cache sdk for android, it's easy to integrated with media players to provide caching capability when watching http videos.
+金山云android平台http缓存SDK，可方便地与播放器集成，实现http视频边播放边下载（缓存）功能。ksyun http cache sdk for android, it's easy to integrated with media players to provide caching capability when watching http videos.
 
 ## 1. 产品概述
-金山云Android HTTPCache SDK可以方便地和播放器进行集成，提供对HTTP点播视频边播放缓存的功能，缓存完成的内容可以离线工作。
+金山云Android HTTPCache SDK可以方便地和播放器进行集成，提供对HTTP视频边播放缓存的功能，缓存完成的内容可以离线工作。
 
 KSY HTTPCache与播放器及视频服务器的关系如下图：
 ![](https://github.com/sujia/image_foder/blob/master/ksy_http_cache.png)
@@ -42,7 +42,10 @@ public class App extends Application {
 }
 ```
 
-proxy与播放器的集成如下所示，播放器通过getProxyUrl接口获得播放地址，进行播放。
+proxy与播放器的集成如下所示：
+对于点播，播放器通过getProxyUrl接口获得播放地址，进行播放。
+对于直播，则可通过getProxyUrl(url, newCache)接口获得播放地址，并通过参数newCache控制播放和缓存的行为。详情请见下方接口说明。
+
 
 ```java
 @Override
@@ -104,6 +107,15 @@ super.onCreate(savedInstanceState);
 
 
 ## 4.其他接口说明
+```
+void getProxyUrl(url, newCache)
+```
+
+获得播放地址
+- 对于http flv直播，如果播放器通过接口getProxyUrl( ur）获得播放地址，播放行为是：首次播放，边播放边缓存；以后播放相同url，则是回看缓存好的视频。
+- 而如果播放器通过getProxyUrl(url, newCache)获得播放地址，播放行为是：newCache参数为true，无论是否有url对应的缓存内容，都是播放并缓存新的直播内容。newCache为false，如果有url对应的缓存内容（命中缓存），播放时回看已缓存的直播内容；没有命中的缓存视频（未命中缓存），则播放并缓存新的直播内容。
+
+
 ```
 void startServer() 
 ```

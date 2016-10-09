@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(2);
     }
 
     @Override

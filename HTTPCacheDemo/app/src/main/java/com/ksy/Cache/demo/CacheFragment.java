@@ -3,10 +3,7 @@ package com.ksy.Cache.demo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,8 +45,6 @@ public class CacheFragment extends Fragment {
 
     public void initlist(){
         proxy = App.getKSYProxy(getActivity());
-        File cachefile = new File(Environment.getExternalStorageDirectory(),"cachetest");
-        proxy.setCacheRoot(cachefile);
         proxy.startServer();
         mycachedlist = new ArrayList<MyVideo>();
         new File(Environment.getExternalStorageDirectory(),"cachetest");
