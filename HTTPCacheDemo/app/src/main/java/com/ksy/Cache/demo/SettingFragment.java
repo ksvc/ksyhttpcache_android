@@ -15,9 +15,11 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.kingsoft.media.httpcache.KSYProxyService;
+import com.kingsoft.media.httpcache.stats.OnLogEventListener;
 
 
-public class SettingFragment extends Fragment implements View.OnClickListener,RadioGroup.OnCheckedChangeListener{
+public class SettingFragment extends Fragment implements View.OnClickListener,RadioGroup.OnCheckedChangeListener
+, OnLogEventListener {
 
 
     private SharedPreferences settings ;
@@ -114,6 +116,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Ra
         switch(view.getId()){
             case R.id.btn_clean:
                 proxy = App.getKSYProxy(getActivity());
+                proxy.registerLogEventListener(this);
                 proxy.startServer();
                 proxy.cleanCaches();
                 proxy.shutDownServer();
@@ -149,5 +152,10 @@ public class SettingFragment extends Fragment implements View.OnClickListener,Ra
         }
         editor.commit();
 
+    }
+
+    @Override
+    public void onLogEvent(String log) {
+        Log.d("cachetest", "stat log: " + log);
     }
 }

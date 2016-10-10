@@ -36,14 +36,18 @@ public class URLFragment extends Fragment {
         HashMap<String,String> map1 = new HashMap<String,String>();
         HashMap<String,String> map2 = new HashMap<String,String>();
         HashMap<String,String> map3 = new HashMap<String,String>();
+        HashMap<String,String> map4 = new HashMap<String,String>();
 
-        map1.put("url","http://cxy.kssws.ks-cdn.com/h265_56c26b7a7dc5f6043.mp4");
+        map1.put("url","http://test.live.ks-cdn.com/live/test_sujia.flv");
         map2.put("url","http://zbvideo.ks3-cn-beijing.ksyun.com/record/live/101743_1466076252/hls/101743_1466076252.m3u8");
         map3.put("url","https://mvvideo5.meitudata.com/571090934cea5517.mp4");
+        map4.put("url","http://kss.ksyun.com/eflakee/FLV/15702274_1474868965.flv");
 
         urllist.add(map1);
         urllist.add(map2);
         urllist.add(map3);
+        urllist.add(map4);
+
         View view = inflater.inflate(R.layout.fragment_url, container, false);
         listView = (ListView)view.findViewById(R.id.list_url);
         SimpleAdapter adapter = new SimpleAdapter(getActivity(),urllist,R.layout.urllist_view,new String[]{"url"},new int[]{R.id.list_url_txt});

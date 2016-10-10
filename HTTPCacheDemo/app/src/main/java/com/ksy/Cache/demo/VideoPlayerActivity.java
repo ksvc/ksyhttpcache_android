@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.kingsoft.media.httpcache.KSYProxyService;
 import com.kingsoft.media.httpcache.OnCacheStatusListener;
 import com.kingsoft.media.httpcache.OnErrorListener;
+import com.kingsoft.media.httpcache.stats.OnLogEventListener;
 import com.ksyun.media.player.IMediaPlayer;
 import com.ksyun.media.player.KSYMediaMeta;
 import com.ksyun.media.player.KSYMediaPlayer;
@@ -49,7 +50,7 @@ import java.util.TimerTask;
  * 2015/5/19.
  */
 public class VideoPlayerActivity extends Activity implements TextureView.SurfaceTextureListener,View.OnClickListener,
-        OnCacheStatusListener, OnErrorListener {
+        OnCacheStatusListener, OnErrorListener, OnLogEventListener {
 
     private static final String TAG = "VideoPlayerActivity";
 
@@ -780,6 +781,7 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
         proxy = App.getKSYProxy(this);
         proxy.registerCacheStatusListener(this, mDataSource);
         proxy.registerErrorListener(this);
+        proxy.registerLogEventListener(this);
         choosecache= settings.getString("choose_cache","undefind");
         if(choosecache.equals(Settings.USENUM)){
             proxy.setMaxFilesCount(500);
@@ -796,16 +798,21 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
 
     @Override
     public void OnCacheStatus(String url, long sourceLength, int percentsAvailable) {
-        Log.d(TAG+"aa", String.format("OnCacheStatus listener percents: %d, sourceLength: %d, url: %s",
+        Log.d("cachetest", String.format("OnCacheStatus listener percents: %d, sourceLength: %d, url: %s",
                         percentsAvailable, sourceLength, url));
         cachelength = (int)length*percentsAvailable/100;
-        Log.e("cachedtest","cachelength:  "+cachelength);
+        Log.d("cachetest","cached length: "+cachelength);
         this.cachePercents = percentsAvailable;
         mPlayerSeekbar.setSecondaryProgress(percentsAvailable);
     }
 
     @Override
     public void OnError(int errCode) {
-        Log.d(TAG+"aa", "onError listener " + errCode);
+        Log.d("cachetest", "onError listener " + errCode);
+    }
+
+    @Override
+    public void onLogEvent(String log) {
+        Log.d("cachetest", "stat log: "+log);
     }
 }
