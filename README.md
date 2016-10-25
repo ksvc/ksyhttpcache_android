@@ -187,6 +187,17 @@ File getCacheRoot()
 
 获得缓存区路径
 
+```
+void setEnableStatModule(boolean enableStatModule)
+```
+
+设置日志模块的开关，默认为开启日志
+
+```
+void registerLogEventListener(OnLogEventListener onLogEventListener)
+```
+注册日志监听接口，当日志模块被开启时，OnLogEventListener将监听到HTTPCache的日志
+
 ## 5.其他文档
 请见[wiki](https://github.com/ksvc/ksyhttpcache_android/wiki)
 
