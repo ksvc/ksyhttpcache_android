@@ -474,11 +474,6 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
     protected void onResume() {
         super.onResume();
         reinitTextureView((TextureView)findViewById(R.id.player_texture));
-        if(ksyMediaPlayer != null)
-        {
-            ksyMediaPlayer.start();
-            mPause = false;
-        }
     }
 
 
