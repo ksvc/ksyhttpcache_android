@@ -22,3 +22,6 @@ local.properties
 
 # Log Files
 *.log
+
+# Mac file
+.DS_Store
