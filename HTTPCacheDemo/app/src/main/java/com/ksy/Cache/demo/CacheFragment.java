@@ -71,7 +71,12 @@ public class CacheFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        proxy.shutDownServer();
 
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        proxy.shutDownServer();
     }
 }

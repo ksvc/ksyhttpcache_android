@@ -46,7 +46,6 @@ public class CachingFragment extends Fragment {
         return view ;
     }
 
-
     private void initView() {
         proxy = App.getKSYProxy(getActivity());
         proxy.startServer();
@@ -76,6 +75,5 @@ public class CachingFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        proxy.shutDownServer();
     }
 }

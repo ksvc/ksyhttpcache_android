@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SelectItemStyle" parent="AlertDialog.AppCompat.Light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
 </resources>

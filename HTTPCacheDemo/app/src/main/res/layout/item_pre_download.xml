@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="40dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/pre_download_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:maxWidth="200dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/pre_download_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/pre_download_progress"
+        android:layout_marginRight="10dp"
+        android:textSize="16sp"
+        android:text="@string/pre_download_state_pausing"/>
+
+    <TextView
+        android:id="@+id/pre_download_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="0%"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

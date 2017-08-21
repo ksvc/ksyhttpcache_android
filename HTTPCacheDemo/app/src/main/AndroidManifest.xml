@@ -39,6 +39,9 @@
         <activity android:name=".VideoPlayerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             />
+        <activity android:name=".activity.PreDownloadActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            />
     </application>
 
 </manifest>
