@@ -679,22 +679,6 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#resumeDownload(java.lang.String)">resumeDownload</a></span>(String url)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#setCacheRoot(java.io.File)">setCacheRoot</a></span>(File cacheRoot)
         
         <div class="jd-descrdiv">设置视频缓存存储路径
@@ -704,7 +688,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -720,7 +704,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -740,7 +724,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -760,7 +744,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -778,7 +762,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -792,6 +776,24 @@ Summary:
         
         <div class="jd-descrdiv">关闭Server
 </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#startPreDownload(java.lang.String)">startPreDownload</a></span>(String url)
+        
+        <div class="jd-descrdiv">开启视频预加载, 需要在<code><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#startServer()">startServer()</a></code>之后调用</div>
   
   </td></tr>
 
@@ -826,6 +828,24 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#stopPreDownload(java.lang.String)">stopPreDownload</a></span>(String url)
+        
+        <div class="jd-descrdiv">停止视频预加载, 需要在<code><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#startServer()">startServer()</a></code>之后调用</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#unregisterCacheStatusListener(com.kingsoft.media.httpcache.OnCacheStatusListener, java.lang.String)">unregisterCacheStatusListener</a></span>(<a href="../../../../com/kingsoft/media/httpcache/OnCacheStatusListener.html">OnCacheStatusListener</a> onCacheStatusListener, String url)
         
         <div class="jd-descrdiv">反注册某视频的缓存状态监听器</div>
@@ -834,7 +854,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -852,7 +872,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1783,37 +1803,6 @@ From class
 </div>
 
 
-<a id="resumeDownload(java.lang.String)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">resumeDownload</span>
-      <span class="normal">(String url)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 <a id="setCacheRoot(java.io.File)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -2046,6 +2035,47 @@ From class
 </div>
 
 
+<a id="startPreDownload(java.lang.String)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">startPreDownload</span>
+      <span class="normal">(String url)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>开启视频预加载, 需要在<code><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#startServer()">startServer()</a></code>之后调用</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>url</th>
+          <td>视频真实播放地址
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <a id="startServer()"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -2073,6 +2103,47 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>启动http server
 </p></div>
+
+    </div>
+</div>
+
+
+<a id="stopPreDownload(java.lang.String)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">stopPreDownload</span>
+      <span class="normal">(String url)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>停止视频预加载, 需要在<code><a href="../../../../com/kingsoft/media/httpcache/KSYProxyService.html#startServer()">startServer()</a></code>之后调用</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>url</th>
+          <td>视频真实播放地址
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
