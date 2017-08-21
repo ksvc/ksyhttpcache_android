@@ -48,8 +48,7 @@ import java.util.TimerTask;
  * @author xinbocheng@qyvideo.cn
  * 2015/5/19.
  */
-public class VideoPlayerActivity extends Activity implements View.OnClickListener,
-        OnCacheStatusListener, OnErrorListener, OnLogEventListener {
+public class VideoPlayerActivity extends Activity implements View.OnClickListener, OnCacheStatusListener, OnErrorListener, OnLogEventListener {
 
     private static final String TAG = "VideoPlayerActivity";
 
@@ -62,7 +61,6 @@ public class VideoPlayerActivity extends Activity implements View.OnClickListene
 
     private SharedPreferences settings;
     private String choosedecode;
-    private String choosecache;
 
     private long length;
     private int cachelength;
@@ -447,7 +445,6 @@ public class VideoPlayerActivity extends Activity implements View.OnClickListene
 
         proxy.unregisterCacheStatusListener(this, mDataSource);
         proxy.unregisterErrorListener(this);
-        proxy.shutDownServer();
     }
 
     @Override
@@ -463,10 +460,13 @@ public class VideoPlayerActivity extends Activity implements View.OnClickListene
     @Override
     protected void onResume() {
         super.onResume();
-        if (mVideoView != null)
+        if(mVideoView != null)
+        {
             mVideoView.runInForeground();
+            mPause = false;
+            mPlayerStartBtn.setBackgroundResource(R.drawable.qyvideo_start_btn);
+        }
     }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -726,18 +726,6 @@ public class VideoPlayerActivity extends Activity implements View.OnClickListene
         proxy.registerCacheStatusListener(this, mDataSource);
         proxy.registerErrorListener(this);
         proxy.registerLogEventListener(this);
-        choosecache= settings.getString("choose_cache","undefind");
-        if(choosecache.equals(Settings.USENUM)){
-            proxy.setMaxFilesCount(500);
-            Log.d(TAG,"文件数量");
-        }else{
-            proxy.setMaxCacheSize(500*1024*1024);
-            Log.d(TAG,"文件大小");
-        }
-
-        proxy.startServer();
-
-        // proxy.setCacheRoot(VideoPlayerActivity.this.getExternalCacheDir());
     }
 
     @Override

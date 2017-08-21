@@ -10,4 +10,12 @@
     <string name="check_hw">硬解</string>
     <string name="check_sw">软解</string>
     <string name="save">保存</string>
+
+    <string name="pre_download_state_pausing">暂停中</string>
+    <string name="pre_download_state_caching">缓存中</string>
+    <string name="pre_download_state_done">缓存完毕</string>
+
+    <string name="dialog_start_pre_download">开始缓存</string>
+    <string name="dialog_stop_pre_download">暂停缓存</string>
+    <string name="dialog_play_video">播放视频</string>
 </resources>
